@@ -1,4 +1,3 @@
 Rails.application.routes.draw do
-
-  mount PartiSsoClient::Engine => "/parti_sso_client"
+  sso_devise
 end
