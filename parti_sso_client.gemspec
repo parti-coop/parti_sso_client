@@ -9,9 +9,8 @@ Gem::Specification.new do |s|
   s.version     = PartiSsoClient::VERSION
   s.authors     = ["dali"]
   s.email       = ["dali@ufofactory.org"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of PartiSsoClient."
-  s.description = "TODO: Description of PartiSsoClient."
+  s.homepage    = "http://parti.xyz"
+  s.summary     = "Parti Sso Client."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
