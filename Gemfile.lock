@@ -4,7 +4,7 @@ PATH
     parti_sso_client (0.0.1)
       devise (~> 3.5.2)
       devise_cas_authenticatable (~> 1.6.0)
-      rails (~> 4.2.5)
+      rails (~> 4.2.4)
 
 GEM
   remote: https://rubygems.org/
