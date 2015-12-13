@@ -2,12 +2,16 @@ module PartiSsoClient
   module Authentication
     extend ActiveSupport::Concern
 
+    class << self
+      attr_accessor :ignored_verifying_authentication
+    end
+
     included do
       hide_action :verify_authentication
     end
 
     def verify_authentication(sign_in_path = new_user_session_path)
-      return if devise_controller?
+      return if devise_controller? or PartiSsoClient::Authentication.ignored_verifying_authentication
 
       session[:user_return_to] = request.original_url if request.get?
 
