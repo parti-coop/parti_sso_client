@@ -6,7 +6,7 @@ module PartiSsoClient
       hide_action :verify_authentication
     end
 
-    def verify_authentication(sign_in_path)
+    def verify_authentication(sign_in_path = new_user_session_path)
       return if devise_controller?
 
       session[:user_return_to] = request.original_url if request.get?
