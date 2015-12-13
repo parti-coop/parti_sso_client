@@ -36,6 +36,7 @@ production:
   sso_secret_key_base: <%= ENV["SSO_SECRET_KEY_BASE"] %>
   sso_encrypted_cookie_salt: <%= ENV["SSO_ENCRYPTED_COOKIE_SALT"] %>
   sso_encrypted_signed_cookie_salt: <%= ENV["SSO_ENCRYPTED_SIGNED_COOKIE_SALT"] %>
+  sso_session_key: <%= ENV["SSO_SESSION_KEY"] %>
 ```
 
 config/initializers/session_store.rb
@@ -47,4 +48,22 @@ app/controllers/application_controller.rb
 ```
   include PartiSsoClient::Authentication
   before_action :verify_authentication
+```
+
+## Test
+
+test/test_helper.rb
+
+```
+require 'parti_sso_client/test_helpers'
+
+class ActionDispatch::IntegrationTest
+  include PartiSsoClient::TestHelpers
+end
+```
+
+sample
+
+```
+sign_in(user)
 ```
