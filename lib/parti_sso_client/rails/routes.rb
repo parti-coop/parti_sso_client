@@ -3,7 +3,7 @@ module ActionDispatch::Routing
     def sso_devise(options={})
       defaults = { skip: [:sessions],
         controllers: { cas_sessions: 'parti_sso_client/sessions' },
-        class_name: 'PartiSsoClient::User',
+        class_name: 'User',
         module: :devise }
       merged = options.merge(defaults)
       merged[:skip] << options[:skip]

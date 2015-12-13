@@ -173,6 +173,7 @@ DEPENDENCIES
   guard-minitest (~> 2.4.4)
   jquery-rails
   mini_backtrace (~> 0.1.3)
+  minitest
   minitest-focus (~> 1.1, >= 1.1.2)
   parti_sso_client!
   sqlite3 (~> 1.3)

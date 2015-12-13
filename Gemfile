@@ -12,7 +12,8 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
-group :test do
+group :development, :test do
+  gem 'minitest'
   gem 'mini_backtrace',     '~> 0.1.3'
   gem 'minitest-focus',     '~> 1.1', '>= 1.1.2'
   gem 'guard', '~> 2.13.0'

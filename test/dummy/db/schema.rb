@@ -11,15 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212042440) do
-
-  create_table "parti_sso_client_users", force: :cascade do |t|
-    t.string   "email",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "parti_sso_client_users", ["email"], name: "index_parti_sso_client_users_on_email"
+ActiveRecord::Schema.define(version: 20151213081240) do
 
   create_table "users", force: :cascade do |t|
     t.string   "email",      null: false

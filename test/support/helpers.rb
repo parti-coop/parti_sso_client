@@ -14,6 +14,6 @@ class ActiveSupport::TestCase
   end
 
   def new_user(attributes={})
-    PartiSsoClient::User.new(valid_attributes(attributes))
+    User.new(valid_attributes(attributes))
   end
 end
