@@ -13,10 +13,10 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 group :test do
-  gem 'minitest-reporters', '~> 1.1.4'
   gem 'mini_backtrace',     '~> 0.1.3'
   gem 'minitest-focus',     '~> 1.1', '>= 1.1.2'
   gem 'guard', '~> 2.13.0'
   gem 'guard-minitest',     '~> 2.4.4'
   gem 'byebug'
+  gem 'jquery-rails'
 end

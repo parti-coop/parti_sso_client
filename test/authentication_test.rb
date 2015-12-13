@@ -51,7 +51,7 @@ class AuthenticationTest < ActionController::TestCase
 
     get :index
 
-    assert_redirected_to :sso_path
+    assert_redirected_to :sso
   end
 
   test 'diffrent authentication' do
@@ -60,6 +60,6 @@ class AuthenticationTest < ActionController::TestCase
 
     get :index
 
-    assert_redirected_to :sso_path
+    assert_redirected_to :sso
   end
 end

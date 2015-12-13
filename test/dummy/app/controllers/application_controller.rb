@@ -4,5 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include PartiSsoClient::Authentication
-  before_action -> { verify_authentication(:sso_path) }
+  before_action -> { verify_authentication(sign_in_path) }
+
+  private
+
+  def sign_in_path
+    Rails.env.test? ? sso_path : new_user_session_path
+  end
 end

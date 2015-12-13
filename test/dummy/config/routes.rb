@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   sso_devise
 
+  root 'pages#index'
   resources :pages
-  get :sso_path, to: 'pages#sso'
+  get :sso, to: 'pages#sso'
 end
