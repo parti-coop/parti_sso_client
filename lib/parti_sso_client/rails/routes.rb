@@ -11,7 +11,9 @@ module ActionDispatch::Routing
       merged[:controllers] = (options[:controllers] || {}).merge(defaults[:controllers])
       devise_for :users, merged
       get "/sign_up", to: redirect { |params, request|
-        query = { service: Rails.application.routes.url_helpers.user_service_path }.to_query
+        query = {
+          service: Rails.application.routes.url_helpers.user_service_url(host: ActionMailer::Base.default_url_options)
+        }.to_query
         URI.join(Devise.cas_base_url, '/users/new', "?#{query}").to_s
       }
     end
