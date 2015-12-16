@@ -10,6 +10,10 @@ module ActionDispatch::Routing
       merged[:skip].compact!.uniq!
       merged[:controllers] = (options[:controllers] || {}).merge(defaults[:controllers])
       devise_for :users, merged
+      get "/sign_up", to: redirect { |params, request|
+        query = { service: Rails.application.routes.url_helpers.user_service_path }.to_query
+        URI.join(Devise.cas_base_url, '/users/new', "?#{query}").to_s
+      }
     end
   end
 end
