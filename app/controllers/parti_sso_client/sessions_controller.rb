@@ -13,7 +13,14 @@ module PartiSsoClient
     skip_before_filter :verify_signed_out_user
 
     def service
-      redirect_to after_sign_in_path_for(warden.authenticate!(:scope => resource_name))
+      resource = warden.authenticate!(:scope => resource_name)
+      after_sign_in_path = after_sign_in_path_for(resource)
+
+      if resource_name == :user and params[:sync].present? and params[:sync] == 'true'
+        User.sync(resource.email)
+      end
+
+      redirect_to after_sign_in_path
     end
 
     def after_sign_in_path_for(resource)
