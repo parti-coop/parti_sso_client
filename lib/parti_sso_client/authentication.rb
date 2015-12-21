@@ -1,5 +1,7 @@
 module PartiSsoClient
   module Authentication
+    SSO_RETURN_TO_KEY = :user_sso_return_to
+
     extend ActiveSupport::Concern
 
     class << self
@@ -13,7 +15,7 @@ module PartiSsoClient
     def verify_authentication(sign_in_path = new_user_session_path)
       return if devise_controller? or PartiSsoClient::Authentication.ignored_verifying_authentication
 
-      session[:user_return_to] = request.original_url if request.get?
+      session[SSO_RETURN_TO_KEY] = request.original_url if request.get?
 
       if diff_auth?
         if user_signed_in?
@@ -26,7 +28,6 @@ module PartiSsoClient
           else
             session[:sso_filtering] = true
           end
-
           redirect_to sign_in_path and return
         end
       end
