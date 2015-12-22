@@ -18,7 +18,7 @@ module ActionDispatch::Routing
       }
       get "/edit_user", to: redirect { |params, request|
         query = {
-          service: Rails.application.routes.url_helpers.user_service_url(sync: true)
+          service: Rails.application.routes.url_helpers.user_service_url()
         }.to_query
         URI.join(Devise.cas_base_url, '/users/edit', "?#{query}").to_s
       }

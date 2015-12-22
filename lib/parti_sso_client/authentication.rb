@@ -56,6 +56,10 @@ module PartiSsoClient
       @sso_session ||= decrypt_session_cookie(@cookie)
     end
 
+    def after_sso_sign_in_path_for(resource)
+      session[SSO_RETURN_TO_KEY] if (controller_name == 'sessions' and action_name == 'service')
+    end
+
     private
 
     def decrypt_session_cookie(cookie)

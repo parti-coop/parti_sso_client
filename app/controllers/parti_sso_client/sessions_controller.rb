@@ -12,23 +12,8 @@ module PartiSsoClient
     # Skip verify_signed_out_user for Devise >= 3.3.0
     skip_before_filter :verify_signed_out_user
 
-    def service
-      resource = warden.authenticate!(:scope => resource_name)
-      after_sign_in_path = after_sign_in_path_for(resource)
-
-      if resource_name == :user and params[:sync].present? and params[:sync] == 'true'
-        User.sync(resource.email)
-      end
-
-      redirect_to after_sign_in_path
-    end
-
     def after_sign_in_path_for(resource)
-      if (controller_name == 'sessions' and action_name == 'service')
-        (session[SSO_RETURN_TO_KEY] || super(resource))
-      else
-        super(resource)
-      end
+      after_sso_sign_in_path_for(resource) || super(resource)
     end
   end
 end
