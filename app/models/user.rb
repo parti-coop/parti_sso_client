@@ -18,4 +18,8 @@ class User < ActiveRecord::Base
     logger.error e
     nil
   end
+
+  def image_url
+    "#{Devise.cas_base_url}users/#{id}/image"
+  end
 end
