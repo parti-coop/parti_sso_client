@@ -20,6 +20,6 @@ class User < ActiveRecord::Base
   end
 
   def image_url
-    "#{Devise.cas_base_url}users/#{id}/image"
+    "#{Devise.cas_base_url}users/images/#{nickname}"
   end
 end
