@@ -16,6 +16,7 @@ group :development, :test do
   gem 'minitest'
   gem 'mini_backtrace',     '~> 0.1.3'
   gem 'minitest-focus',     '~> 1.1', '>= 1.1.2'
+  gem 'mocha', '~> 1.1'
   gem 'guard', '~> 2.13.0'
   gem 'guard-minitest',     '~> 2.4.4'
   gem 'byebug'

@@ -50,6 +50,14 @@ app/controllers/application_controller.rb
   before_action :verify_authentication
 ```
 
+for mobile application
+```
+  include PartiSsoClient::TokenAuthentication
+
+  token_user
+  token_authenticated?
+```
+
 ## Test
 
 test/test_helper.rb

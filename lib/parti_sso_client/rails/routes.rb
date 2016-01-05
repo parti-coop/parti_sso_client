@@ -22,6 +22,8 @@ module ActionDispatch::Routing
         }.to_query
         URI.join(Devise.cas_base_url, '/users/edit', "?#{query}").to_s
       }
+
+      mount PartiSsoClient::API::Base, at: "/users"
     end
   end
 end

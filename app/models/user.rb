@@ -3,6 +3,7 @@ require 'json'
 
 class User < ActiveRecord::Base
   devise :cas_authenticatable
+  has_many :api_keys, class_name: PartiSsoClient::ApiKey
 
   def cas_extra_attributes=(extra_attributes)
     self.nickname = (extra_attributes.try(:[], "nickname") || self.nickname)
