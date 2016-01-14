@@ -15,6 +15,11 @@ module PartiSsoClient
       get path, ticket: user.email
     end
 
+    def sign_out(user)
+      scope = Devise::Mapping.find_scope!(user)
+      delete send(:"destroy_#{scope}_session_path")
+    end
+
     protected
 
     def _make_casino_to_yesman
