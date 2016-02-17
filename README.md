@@ -50,6 +50,12 @@ app/controllers/application_controller.rb
   before_action :verify_authentication
 ```
 
+migration database
+```
+$ bundle exec rake parti_sso_client:install:migrations
+$ bundle exec rake db:migrate
+```
+
 for mobile application
 ```
   include PartiSsoClient::TokenAuthentication
