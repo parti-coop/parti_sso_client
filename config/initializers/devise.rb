@@ -261,7 +261,7 @@ Devise.setup do |config|
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 
   # ==> Configuration for SSO server authentication
-  if Rails.env.staging?
+  if Rails.env.staging? or Rails.env.production?
     # Url pointing to the CASino SSO server
     config.cas_base_url = "http://sso.parti.xyz/"
   else
